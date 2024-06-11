@@ -5,38 +5,35 @@ import java.time.format.DateTimeFormatter;
 
 public class Installment {
 
-	private LocalDate dueDate;
-	private Double amount;
-	
-	private static	DateTimeFormatter fmt = DateTimeFormatter .ofPattern("dd/MM/aaaa");
-	
-	public Installment(LocalDate dueDate, Double amount) {
-		this.dueDate = dueDate;
-		this.amount = amount;
-	}
+    private LocalDate date;
+    private Double amount;
 
-	public LocalDate getDueDate() {
-		return dueDate;
-	}
+    // Corrigido o padrão de data para usar "yyyy" em vez de "aaaa"
+    private static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
-	}
+    public Installment(LocalDate date, Double amount) {
+        this.date = date;
+        this.amount = amount;
+    }
 
-	public Double getAmount() {
-		return amount;
-	}
+    public LocalDate getDate() {
+        return date;
+    }
 
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
-	@Override
-	public String toString() {
-		return dueDate.format(fmt)+ " - " + String.format("%.2f", amount);
-	}
-	
-	
-	
+    public Double getAmount() {
+        return amount;
+    }
 
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return date.format(fmt) + " - " + String.format("%.2f", amount);
+    }
 }
